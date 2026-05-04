@@ -4,77 +4,152 @@
   <meta charset="UTF-8" />
   <title>Contact | Clementine Speech Therapy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="site-wrapper">
+
+    <!-- NAV -->
     <header class="site-header">
       <div class="container navbar">
-        <a href="/" class="brand">
-          <div class="brand-icon"></div>
+        <a href="index.html" class="brand">
+          <div class="brand-icon">
+            <img src="images/CLEMENTINELOGO.png" alt="Clementine Speech Therapy" />
+          </div>
           <div class="brand-text">
-            <span class="brand-name">Clementine Speech Therapy</span>
-            <span class="brand-tagline">Communication blooms, Confidence grows</span>
+            <span class="brand-name">Clementine</span>
+            <span class="brand-sub">Speech Therapy</span>
           </div>
         </a>
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/howitworks">How It Works</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/partnerships">Partnerships</a>
-          <a href="/contact" class="nav-cta">Book a Consultation</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html" class="nav-cta">Contact Us</a>
         </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container page-hero-inner">
-        <h1 class="page-hero-title">Contact</h1>
+        <span class="page-hero-kicker">Let's connect</span>
+        <h1 class="page-hero-title">Book a <em>free consultation</em></h1>
         <p class="page-hero-subtitle">
-          Have questions or ready to schedule a consultation? Share a bit about your needs, and we'll connect.
+          Have questions or ready to schedule? Share a bit about your needs and we'll find a time to connect — no commitment required.
         </p>
       </div>
     </section>
 
     <main>
-      <div class="container">
-        <section class="section">
-          <div class="grid-2">
-            <div class="card contact-card">
-              <div class="card-tag">Contact details</div>
-              <h2 class="card-title">Clementine Speech Therapy</h2>
-              <p class="card-text">
-                St. Petersburg, FL<br />
-                <strong>Email:</strong> your.email@example.com<br />
-                <strong>Phone:</strong> (000) 000‑0000
-              </p>
-              <p class="card-text">
-                Please do not include sensitive medical information in your initial message. We can discuss details together.
+
+      <section class="section">
+        <div class="container">
+          <div class="contact-grid">
+
+            <!-- Left: Contact Info -->
+            <div class="contact-info-block">
+              <div>
+                <p class="section-kicker">Reach us</p>
+                <h2 class="section-title">We'd love to <em>hear from you</em></h2>
+                <p class="section-body">
+                  Whether you have a question about a specific service, want to learn more about what to expect, or are ready to
+                  book — we're happy to connect.
+                </p>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="contact-detail-row">
+                  <span class="contact-detail-label">Location</span>
+                  <span class="contact-detail-value">
+                    Greater Tampa Bay Area, FL
+                    <br><small style="color: var(--text-muted); font-size: 0.82rem;">Teletherapy available across Florida</small>
+                  </span>
+                </div>
+                <div class="contact-detail-row">
+                  <span class="contact-detail-label">Email</span>
+                  <span class="contact-detail-value">aemelia@clementinespeech.com</span>
+                </div>
+                <div class="contact-detail-row">
+                  <span class="contact-detail-label">Phone</span>
+                  <span class="contact-detail-value">(757) 636‑0746</span>
+                </div>
+                <div class="contact-detail-row">
+                  <span class="contact-detail-label">Response</span>
+                  <span class="contact-detail-value">Typically within 1–2 business days</span>
+                </div>
+              </div>
+
+              <p class="contact-notice">
+                Please do not include sensitive medical or health information in your initial message.
+                We can discuss details confidentially once we connect.
               </p>
             </div>
 
-            <div class="card">
-              <div class="card-tag">Next step</div>
-              <h3 class="card-title">Schedule a consultation</h3>
-              <p class="card-text">
-                Use your preferred scheduling tool or contact method here. If you add an embedded form or calendar in Webflow,
-                this section can hold that element.
-              </p>
-              <a href="mailto:your.email@example.com" class="btn btn-primary">Email to schedule</a>
+            <!-- Right: Booking -->
+            <div>
+              <div class="card card--accent">
+                <span class="card-tag">Free consultation</span>
+                <h3 class="card-title">Schedule your first conversation</h3>
+                <p class="card-text">
+                  A free consultation is a no‑pressure way to introduce yourself, ask questions, and explore whether
+                  Clementine Speech Therapy is the right fit for you or your child.
+                </p>
+                <p class="card-text">
+                  We'll discuss your goals, current challenges, and what support might look like going forward.
+                </p>
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(232, 160, 106, 0.15);">
+                  <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--sage); margin: 0 0 1rem; font-weight: 500;">Schedule via</p>
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="mailto:aemelia@clementinespeech.com" class="btn btn-primary" style="justify-content: center;">Email to schedule</a>
+                    <a href="tel:7576360746" class="btn btn-ghost" style="justify-content: center;">Call us directly</a>
+                  </div>
+                  <p style="font-size: 0.78rem; color: var(--text-light); margin: 1rem 0 0; text-align: center;">Or embed an online scheduler (Calendly, Jane, etc.) here</p>
+                </div>
+              </div>
+
+              <div class="card" style="margin-top: 1.25rem;">
+                <span class="card-tag">What to expect</span>
+                <h3 class="card-title">Your first steps</h3>
+                <ul class="card-list">
+                  <li>We'll reach out to confirm a consultation time</li>
+                  <li>You'll share a bit about your goals and needs</li>
+                  <li>We'll walk through services and what to expect</li>
+                  <li>Together, we'll schedule your first session</li>
+                </ul>
+              </div>
             </div>
+
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>© Clementine Speech Therapy</span>
-        <span>St. Petersburg, Florida</span>
+        <div class="footer-brand">
+          <span class="brand-name">Clementine Speech Therapy</span>
+          <span class="footer-location">Greater Tampa Bay Area, FL</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html">Contact Us</a>
+        </nav>
+        <span class="footer-copy">© 2025 Clementine Speech Therapy</span>
       </div>
     </footer>
+
   </div>
 </body>
 </html>

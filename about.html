@@ -4,86 +4,223 @@
   <meta charset="UTF-8" />
   <title>About | Clementine Speech Therapy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="site-wrapper">
+
+    <!-- NAV -->
     <header class="site-header">
       <div class="container navbar">
-        <a href="/" class="brand">
-          <div class="brand-icon"></div>
+        <a href="index.html" class="brand">
+          <div class="brand-icon">
+            <img src="images/CLEMENTINELOGO.png" alt="Clementine Speech Therapy" />
+          </div>
           <div class="brand-text">
-            <span class="brand-name">Clementine Speech Therapy</span>
-            <span class="brand-tagline">Communication blooms, Confidence grows</span>
+            <span class="brand-name">Clementine</span>
+            <span class="brand-sub">Speech Therapy</span>
           </div>
         </a>
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/howitworks">How It Works</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/partnerships">Partnerships</a>
-          <a href="/contact" class="nav-cta">Book a Consultation</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html" class="nav-cta">Contact Us</a>
         </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container page-hero-inner">
-        <h1 class="page-hero-title">About Clementine Speech Therapy</h1>
+        <span class="page-hero-kicker">Meet your SLP</span>
+        <h1 class="page-hero-title">Aemelia Jackson,<br><em>M.S., CCC‑SLP</em></h1>
         <p class="page-hero-subtitle">
-          A warm, collaborative speech‑language practice supporting communication across the lifespan in St. Petersburg, FL.
+          A licensed Speech‑Language Pathologist committed to warm, collaborative, evidence‑based care for individuals of all ages in the Greater Tampa Bay Area, FL.
         </p>
       </div>
     </section>
 
     <main>
-      <div class="container">
-        <section class="section">
-          <header class="section-header">
-            <div class="section-kicker">Meet your SLP</div>
-            <h2 class="section-title">Aemelia Jackson, M.S., CCC‑SLP</h2>
-          </header>
 
-          <div class="grid-2">
-            <div>
+      <!-- BIO SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="bio-grid">
+
+            <div class="bio-photo">
+              <div class="photo-placeholder">
+                <div class="photo-placeholder-inner">
+                  <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="32" r="14" stroke="#c5956a" stroke-width="1.5" fill="none"/>
+                    <path d="M16 66c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#c5956a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <circle cx="40" cy="32" r="6" fill="#F8C9A0" opacity="0.6"/>
+                  </svg>
+                  <p class="placeholder-label">Headshot photo</p>
+                </div>
+                <div class="photo-decoration photo-dec-1"></div>
+                <div class="photo-decoration photo-dec-2"></div>
+              </div>
+            </div>
+
+            <div class="bio-text">
+              <p class="section-kicker">About Aemelia</p>
+              <h2 class="section-title">Therapy built on <em>connection and trust</em></h2>
               <p>
                 I'm Aemelia Jackson, a licensed Speech‑Language Pathologist and the owner of Clementine Speech Therapy.
                 I work with children, teens, and adults to build communication skills that feel natural, functional, and empowering.
               </p>
               <p>
-                My approach is warm, collaborative, and grounded in evidence‑based practice. I value connection and
-                believe that therapy should fit into real life — whether that's playing on the floor with a child,
-                supporting a teen in the classroom, or helping an adult feel more confident at work.
+                My approach is warm, collaborative, and grounded in evidence‑based practice. I believe that therapy should fit into
+                real life — whether that's playing on the floor with a child, supporting a teen in the classroom, or helping an adult
+                feel more confident at work.
               </p>
-            </div>
-            <div>
-              <div class="card">
-                <div class="card-tag">Philosophy</div>
-                <h3 class="card-title">Communication as connection</h3>
-                <p class="card-text">
-                  I believe everyone deserves to feel understood. Therapy at Clementine is built on:
-                </p>
-                <ul class="card-list">
-                  <li>Functional, meaningful goals.</li>
-                  <li>Collaboration with families, caregivers, and professionals.</li>
-                  <li>Clear, compassionate communication.</li>
-                  <li>Celebrating progress at every stage of life.</li>
-                </ul>
+              <p>
+                Communication is at the heart of every relationship, every opportunity, and every moment of self‑expression.
+                I'm honored to walk alongside clients and families as they build skills that open doors.
+              </p>
+
+              <div class="values-grid">
+                <div class="value-card">
+                  <span class="value-card-label">Approach</span>
+                  <p class="value-card-text">Warm, play‑based, and evidence‑driven — always rooted in what matters most to you.</p>
+                </div>
+                <div class="value-card">
+                  <span class="value-card-label">Collaboration</span>
+                  <p class="value-card-text">Partnering with families, caregivers, teachers, and other professionals.</p>
+                </div>
+                <div class="value-card">
+                  <span class="value-card-label">Credentials</span>
+                  <p class="value-card-text">M.S. in Speech‑Language Pathology · Certificate of Clinical Competence (CCC‑SLP).</p>
+                </div>
+                <div class="value-card">
+                  <span class="value-card-label">Location</span>
+                  <p class="value-card-text">In‑person in the Greater Tampa Bay Area · Teletherapy available across Florida.</p>
+                </div>
               </div>
             </div>
+
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <!-- PHILOSOPHY SECTION -->
+      <section class="section section-why">
+        <div class="container">
+          <div class="why-grid">
+
+            <div class="why-text">
+              <p class="section-kicker">My philosophy</p>
+              <h2 class="section-title">Every person deserves to feel <em>understood</em></h2>
+              <p class="section-body">
+                Therapy at Clementine is never one‑size‑fits‑all. Each client brings unique strengths, goals, and a story worth
+                understanding. Real progress happens when people feel safe, seen, and supported.
+              </p>
+              <div class="why-points">
+                <div class="why-point">
+                  <div class="why-dot"></div>
+                  <div>
+                    <strong>Functional, meaningful goals</strong>
+                    <p>Skills that make a real difference in daily life — not just clinical benchmarks.</p>
+                  </div>
+                </div>
+                <div class="why-point">
+                  <div class="why-dot"></div>
+                  <div>
+                    <strong>Family and caregiver coaching</strong>
+                    <p>Progress extends beyond the session when families are empowered with practical strategies.</p>
+                  </div>
+                </div>
+                <div class="why-point">
+                  <div class="why-dot"></div>
+                  <div>
+                    <strong>Celebrating every stage of growth</strong>
+                    <p>Whether it's a first word or a confident presentation — every milestone matters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="why-media">
+              <div class="photo-placeholder photo-placeholder--tall">
+                <div class="photo-placeholder-inner">
+                  <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 14c-9 0-18 6-18 18 0 8 5 14 12 17v7l6 4 6-4v-7c7-3 12-9 12-17 0-12-9-18-18-18z" stroke="#c5956a" stroke-width="1.5" fill="none"/>
+                    <path d="M33 44l4 4 10-10" stroke="#7A9E6F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <p class="placeholder-label">Clinic or session photo</p>
+                </div>
+                <div class="photo-decoration photo-dec-3"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </main>
 
+    <!-- CONTACT STRIP -->
+    <section class="section contact-strip">
+      <div class="container">
+        <div class="contact-strip-inner">
+          <div>
+            <p class="section-kicker">Take the first step</p>
+            <h2 class="section-title">Ready to start your <em>communication journey?</em></h2>
+            <p class="section-body">
+              Book a free consultation and let's talk about your goals — for yourself, your child, or your family.
+            </p>
+            <div class="contact-strip-actions">
+              <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+              <a href="services.html" class="btn btn-ghost">Explore Services</a>
+            </div>
+          </div>
+          <div class="contact-detail-card">
+            <div class="contact-detail-row">
+              <span class="contact-detail-label">Location</span>
+              <span class="contact-detail-value">Greater Tampa Bay Area, FL · Teletherapy across FL</span>
+            </div>
+            <div class="contact-detail-row">
+              <span class="contact-detail-label">Email</span>
+              <span class="contact-detail-value">aemelia@clementinespeech.com</span>
+            </div>
+            <div class="contact-detail-row">
+              <span class="contact-detail-label">Phone</span>
+              <span class="contact-detail-value">(757) 636‑0746</span>
+            </div>
+            <div class="contact-detail-row">
+              <span class="contact-detail-label">Availability</span>
+              <span class="contact-detail-value">In‑person &amp; virtual sessions available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>© Clementine Speech Therapy</span>
-        <span>St. Petersburg, Florida</span>
+        <div class="footer-brand">
+          <span class="brand-name">Clementine Speech Therapy</span>
+          <span class="footer-location">Greater Tampa Bay Area, FL</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html">Contact Us</a>
+        </nav>
+        <span class="footer-copy">© 2025 Clementine Speech Therapy</span>
       </div>
     </footer>
+
   </div>
 </body>
 </html>

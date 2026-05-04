@@ -4,132 +4,243 @@
   <meta charset="UTF-8" />
   <title>Clementine Speech Therapy | Communication blooms, Confidence grows</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="site-wrapper">
+
+    <!-- NAV -->
     <header class="site-header">
       <div class="container navbar">
-        <a href="/" class="brand">
-          <div class="brand-icon"></div>
+        <a href="index.html" class="brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="19" cy="21" r="14" fill="#F8C9A0"/>
+              <ellipse cx="19" cy="10" rx="4" ry="7" fill="#7A9E6F" transform="rotate(-8 19 10)"/>
+              <circle cx="19" cy="21" r="9" fill="none" stroke="#e8a06a" stroke-width="1.2" stroke-dasharray="2 3"/>
+            </svg>
+          </div>
           <div class="brand-text">
-            <span class="brand-name">Clementine Speech Therapy</span>
-            <span class="brand-tagline">Communication blooms, Confidence grows</span>
+            <span class="brand-name">Clementine</span>
+            <span class="brand-sub">Speech Therapy</span>
           </div>
         </a>
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/howitworks">How It Works</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/partnerships">Partnerships</a>
-          <a href="/contact" class="nav-cta">Book a Consultation</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html" class="nav-cta">Contact Us</a>
         </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
     <main>
-      <div class="container hero">
-        <div class="hero-text">
-          <div class="hero-kicker">Speech-language services</div>
-          <h1 class="hero-title">Communication blooms, Confidence grows.</h1>
-          <p class="hero-subtitle">
-            Speech‑language services for individuals of all ages — supporting clear, confident communication at every stage of life.
-          </p>
-          <div class="hero-actions">
-            <a href="/contact" class="btn btn-primary">Book a consultation</a>
-            <a href="/services" class="btn btn-ghost">Explore services</a>
-          </div>
-        </div>
 
-        <aside class="hero-card">
-          <div class="hero-pill">All ages • Evidence‑based • Person‑centered</div>
-          <h2 class="hero-card-title">Support for real‑life communication</h2>
-          <ul class="hero-list">
-            <li>
-              <span class="hero-badge"></span>
-              <span>Children building foundational communication skills.</span>
-            </li>
-            <li>
-              <span class="hero-badge"></span>
-              <span>Teens navigating academic and social communication.</span>
-            </li>
-            <li>
-              <span class="hero-badge"></span>
-              <span>Adults seeking clearer, more effective communication.</span>
-            </li>
-          </ul>
-        </aside>
-      </div>
-
-      <section class="section">
-        <div class="container">
-          <header class="section-header">
-            <div class="section-kicker">Who we support</div>
-            <h2 class="section-title">Communication care across the lifespan</h2>
-            <p class="section-subtitle">
-              Clementine Speech Therapy provides warm, evidence‑based support for children, teens, and adults in St. Petersburg, FL and surrounding areas.
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="hero-kicker">Speech-language services · Greater Tampa Bay Area, FL</p>
+            <h1 class="hero-title">Communication<br><em>blooms.</em><br>Confidence <em>grows.</em></h1>
+            <p class="hero-body">
+              Warm, evidence‑based speech‑language therapy for individuals of all ages — supporting clear, confident communication at every stage of life.
             </p>
-          </header>
+            <div class="hero-actions">
+              <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+              <a href="services.html" class="btn btn-ghost">Explore Services</a>
+            </div>
+            <div class="hero-badges">
+              <span class="badge">All Ages</span>
+              <span class="badge">Evidence‑Based</span>
+              <span class="badge">Person‑Centered</span>
+            </div>
+          </div>
 
-          <div class="grid-3">
-            <div class="card">
-              <div class="card-tag">Children</div>
-              <h3 class="card-title">Foundational skills</h3>
-              <p class="card-text">
-                Early communication, speech sounds, language development, and social interaction woven into play and daily routines.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-tag">Teens</div>
-              <h3 class="card-title">School & social life</h3>
-              <p class="card-text">
-                Support for academic language, self‑advocacy, social communication, and functional skills for growing independence.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-tag">Adults</div>
-              <h3 class="card-title">Work & everyday communication</h3>
-              <p class="card-text">
-                Clarity, confidence, and strategies for conversations, presentations, and daily communication demands.
-              </p>
+          <div class="hero-media">
+            <div class="photo-placeholder">
+              <div class="photo-placeholder-inner">
+                <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="32" r="14" stroke="#c5956a" stroke-width="1.5" fill="none"/>
+                  <path d="M16 66c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#c5956a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  <circle cx="40" cy="32" r="6" fill="#F8C9A0" opacity="0.6"/>
+                </svg>
+                <p class="placeholder-label">Your photo here</p>
+              </div>
+              <div class="photo-decoration photo-dec-1"></div>
+              <div class="photo-decoration photo-dec-2"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <!-- WHAT WE DO -->
+      <section class="section section-what">
+        <div class="container what-grid">
+          <div class="what-media">
+            <div class="photo-placeholder photo-placeholder--sm">
+              <div class="photo-placeholder-inner">
+                <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="14" y="20" width="52" height="40" rx="6" stroke="#c5956a" stroke-width="1.5" fill="none"/>
+                  <path d="M28 40h24M28 50h16" stroke="#c5956a" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="40" cy="30" r="5" stroke="#7A9E6F" stroke-width="1.5" fill="none"/>
+                </svg>
+                <p class="placeholder-label">Session photo</p>
+              </div>
+            </div>
+          </div>
+          <div class="what-text">
+            <p class="section-kicker">What we do</p>
+            <h2 class="section-title">More than just exercises —<br><em>real‑life communication support</em></h2>
+            <p class="section-body">
+              At Clementine Speech Therapy, sessions go beyond drills. Every visit focuses on understanding your unique needs, addressing root‑cause communication challenges, and building lasting strategies for the classroom, workplace, and everyday life.
+            </p>
+            <p class="section-body">
+              Through a blend of play, conversation, and evidence‑based technique, we help clients build the skills to communicate with clarity and confidence — at any age.
+            </p>
+            <a href="services.html" class="btn btn-outline">Explore Services →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO WE SUPPORT -->
+      <section class="section section-who">
         <div class="container">
-          <header class="section-header">
-            <div class="section-kicker">Why clients choose Clementine</div>
-            <h2 class="section-title">Warm, collaborative, evidence‑based care</h2>
-          </header>
+          <div class="section-header-centered">
+            <p class="section-kicker">Who we support</p>
+            <h2 class="section-title">Communication care<br><em>across the lifespan</em></h2>
+          </div>
 
-          <div class="grid-2">
-            <div class="card">
-              <h3 class="card-title">Person‑centered therapy</h3>
-              <p class="card-text">
-                Therapy is tailored to each person's goals, interests, and daily life — whether that's the classroom, workplace, or home.
-              </p>
+          <div class="who-grid">
+            <div class="who-card">
+              <div class="who-card-label">Children</div>
+              <h3 class="who-card-title">Foundational Skills</h3>
+              <p class="who-card-text">Early communication, speech sounds, language development, and social interaction woven into play and daily routines.</p>
+              <a href="services.html" class="card-link">Learn more →</a>
             </div>
-            <div class="card">
-              <h3 class="card-title">Collaboration at the core</h3>
-              <p class="card-text">
-                We partner with families, caregivers, teachers, and other professionals to create consistent, meaningful support.
-              </p>
+            <div class="who-card who-card--accent">
+              <div class="who-card-label">Teens</div>
+              <h3 class="who-card-title">School &amp; Social Life</h3>
+              <p class="who-card-text">Support for academic language, self‑advocacy, social communication, and functional skills for growing independence.</p>
+              <a href="services.html" class="card-link">Learn more →</a>
+            </div>
+            <div class="who-card">
+              <div class="who-card-label">Adults</div>
+              <h3 class="who-card-title">Work &amp; Everyday Communication</h3>
+              <p class="who-card-text">Clarity, confidence, and strategies for conversations, presentations, and daily communication demands.</p>
+              <a href="services.html" class="card-link">Learn more →</a>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- WHY CLEMENTINE -->
+      <section class="section section-why">
+        <div class="container why-grid">
+          <div class="why-text">
+            <p class="section-kicker">Why Clementine</p>
+            <h2 class="section-title">Warm, collaborative,<br><em>evidence‑based care</em></h2>
+            <p class="section-body">
+              We believe real progress happens when clients feel safe, seen, and supported. Our approach blends clinical expertise with a calm, welcoming environment — nothing like a sterile office.
+            </p>
+            <div class="why-points">
+              <div class="why-point">
+                <div class="why-dot"></div>
+                <div>
+                  <strong>Person‑centered therapy</strong>
+                  <p>Tailored to your goals, interests, and daily life — whether that's the classroom, workplace, or home.</p>
+                </div>
+              </div>
+              <div class="why-point">
+                <div class="why-dot"></div>
+                <div>
+                  <strong>Collaboration at the core</strong>
+                  <p>We partner with families, caregivers, teachers, and professionals for consistent, meaningful support.</p>
+                </div>
+              </div>
+              <div class="why-point">
+                <div class="why-dot"></div>
+                <div>
+                  <strong>In‑person &amp; virtual</strong>
+                  <p>Available throughout the Greater Tampa Bay Area and virtually across Florida for flexible access to expert care.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="why-media">
+            <div class="photo-placeholder photo-placeholder--tall">
+              <div class="photo-placeholder-inner">
+                <svg class="placeholder-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 14c-9 0-18 6-18 18 0 8 5 14 12 17v7l6 4 6-4v-7c7-3 12-9 12-17 0-12-9-18-18-18z" stroke="#c5956a" stroke-width="1.5" fill="none"/>
+                  <path d="M33 44l4 4 10-10" stroke="#7A9E6F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="placeholder-label">Clinic or headshot photo</p>
+              </div>
+              <div class="photo-decoration photo-dec-3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section section-testimonials">
+        <div class="container">
+          <div class="section-header-centered">
+            <p class="section-kicker">What clients say</p>
+            <h2 class="section-title"><em>Voices</em> from our community</h2>
+          </div>
+          <div class="testimonials-grid">
+            <blockquote class="testimonial">
+              <p class="testimonial-text">"Working with Clementine Speech Therapy has been transformative. My daughter finally has the words to express herself — and the confidence to use them."</p>
+              <footer class="testimonial-author">— Parent of a 6-year-old client</footer>
+            </blockquote>
+            <blockquote class="testimonial testimonial--accent">
+              <p class="testimonial-text">"The sessions feel completely tailored to me. I've made more progress in 2 months than I did in years of generic therapy."</p>
+              <footer class="testimonial-author">— Adult client</footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p class="testimonial-text">"My son looks forward to every session. The warmth and creativity here is unlike anything we've experienced before."</p>
+              <footer class="testimonial-author">— Parent of a teen client</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BANNER -->
+      <section class="cta-band">
+        <div class="container cta-band-inner">
+          <div>
+            <h2 class="cta-band-title">Ready to take the first step?</h2>
+            <p class="cta-band-sub">Book a free consultation and let's talk about your goals.</p>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-lg">Book a Consultation</a>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>© Clementine Speech Therapy</span>
-        <span>St. Petersburg, Florida</span>
+        <div class="footer-brand">
+          <span class="brand-name">Clementine Speech Therapy</span>
+          <span class="footer-location">Greater Tampa Bay Area, FL</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html">Contact Us</a>
+        </nav>
+        <span class="footer-copy">© 2025 Clementine Speech Therapy</span>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
