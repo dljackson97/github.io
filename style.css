@@ -49,6 +49,22 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+html { scroll-behavior: smooth; }
+
+/* Keep anchor targets clear of the sticky header on all screen sizes */
+#free-screening,
+#what-to-expect {
+  scroll-margin-top: 9.5rem;
+}
+
+@media (max-width: 680px) {
+  /* Mobile header is taller (logo stacks vertically) */
+  #free-screening,
+  #what-to-expect {
+    scroll-margin-top: 11.5rem;
+  }
+}
+
 body { line-height: 1.65; }
 
 a { color: inherit; text-decoration: none; }
