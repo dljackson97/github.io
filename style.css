@@ -1050,10 +1050,14 @@ img { display: block; max-width: 100%; }
   }
 
   /* ---- Touch-friendly buttons ---- */
-  .btn { min-height: 44px; padding: 0.85rem 1.5rem; }
+  .btn,
+  .btn.btn-lg { min-height: 44px; padding: 0.65rem 1.25rem; font-size: 0.9rem; }
 
   /* ---- Layout ---- */
-  .hero-title { font-size: 2.4rem; line-height: 1.1; }
+  .hero-title { font-size: 2rem; line-height: 1.12; }
+  /* Disable the fade-up animation on mobile — battery-saver and low-power
+     modes can suspend it mid-keyframe, leaving the element at opacity:0 */
+  .hero-content { animation: none; }
   .no-wrap { white-space: normal; }
   .section { padding: 3.5rem 0; }
   .who-grid, .testimonials-grid { grid-template-columns: 1fr; }
@@ -1629,9 +1633,9 @@ details[open] .faq-icon { transform: rotate(45deg); }
   /* Hero media: constrain so content stays above the fold */
   .hero-media { max-width: 260px; }
 
-  /* Full-width hero & CTA band buttons for easier tapping */
-  .hero-actions .btn { width: 100%; justify-content: center; }
-  .cta-band-inner .btn { width: 100%; justify-content: center; }
+  /* Hero & CTA band buttons: auto-width, left-aligned stack */
+  .hero-actions { align-items: flex-start; }
+  .cta-band-inner .btn { align-self: flex-start; }
 
   /* Allow body copy to fill mobile width */
   .hero-body  { max-width: 100%; }
