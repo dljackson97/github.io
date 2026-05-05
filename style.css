@@ -301,9 +301,8 @@ img { display: block; max-width: 100%; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  gap: 4rem;
   align-items: center;
-  transform: translateX(-10px);
 }
 
 .hero-kicker {
@@ -1364,6 +1363,125 @@ details[open] .faq-icon { transform: rotate(45deg); }
   .values-grid { grid-template-columns: 1fr; }
   .page-hero-title { font-size: 2.1rem; }
   .page-hero { padding: 3.5rem 0 3rem; }
+}
+
+/* ============================================================
+   WELCOME POPUP
+   ============================================================ */
+
+.welcome-popup {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 400;
+  max-width: 320px;
+  width: calc(100% - 2rem);
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.6rem 1.5rem;
+  box-shadow: 0 20px 50px rgba(60, 40, 20, 0.18);
+  border: 1px solid rgba(232, 160, 106, 0.22);
+  transform: translateY(130%);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.welcome-popup.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.welcome-popup-close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 6px;
+  font-size: 0.95rem;
+  line-height: 1;
+  border-radius: 50%;
+  transition: color 0.15s, background-color 0.15s;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-popup-close:hover {
+  color: var(--text-main);
+  background-color: var(--clementine-warm);
+}
+
+.welcome-popup-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.55rem;
+  display: block;
+}
+
+.welcome-popup-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0 0 0.5rem;
+  padding-right: 1.2rem;
+  line-height: 1.25;
+}
+
+.welcome-popup-text {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+  font-weight: 400;
+}
+
+.welcome-popup-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 680px) {
+  .welcome-popup {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+    width: auto;
+  }
+}
+
+/* ============================================================
+   MOBILE UX IMPROVEMENTS
+   ============================================================ */
+
+@media (max-width: 680px) {
+  /* Hero media: constrain so content stays above the fold */
+  .hero-media { max-width: 260px; }
+
+  /* Full-width hero & CTA band buttons for easier tapping */
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .cta-band-inner .btn { width: 100%; justify-content: center; }
+
+  /* Allow body copy to fill mobile width */
+  .hero-body  { max-width: 100%; }
+  .section-body { max-width: 100%; }
+
+  /* Why-section bullets should use full width on mobile */
+  .why-point { max-width: 100%; }
+
+  /* Slightly smaller CTA band title on mobile */
+  .cta-band-title { font-size: 1.85rem; }
 }
 
 /* ============================================================

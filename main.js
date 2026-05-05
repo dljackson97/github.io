@@ -26,3 +26,25 @@ navLinks?.querySelectorAll('a').forEach(link => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && navLinks?.classList.contains('is-open')) closeMenu();
 });
+
+// Welcome popup — slides up after 3.5 s, dismissed for the session
+(function () {
+  const popup = document.getElementById('welcome-popup');
+  if (!popup) return;
+  if (sessionStorage.getItem('popup-dismissed')) return;
+
+  const showPopup = () => popup.classList.add('is-visible');
+  const hidePopup = () => {
+    popup.classList.remove('is-visible');
+    sessionStorage.setItem('popup-dismissed', '1');
+  };
+
+  setTimeout(showPopup, 3500);
+
+  document.getElementById('popup-close')?.addEventListener('click', hidePopup);
+  document.getElementById('popup-cta')?.addEventListener('click', hidePopup);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && popup.classList.contains('is-visible')) hidePopup();
+  });
+}());

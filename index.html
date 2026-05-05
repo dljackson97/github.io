@@ -2,12 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Clementine Speech Therapy | Communication blooms, Confidence grows</title>
+  <title>Clementine Speech Therapy | Speech-Language Pathologist in St. Petersburg, FL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Warm, evidence-based speech-language therapy for children, teens, and adults in St. Petersburg, FL. Free screenings available — in-person and teletherapy across Florida." />
+  <meta name="robots" content="index, follow" />
+  <!-- Favicon & thumbnail -->
+  <link rel="icon" type="image/png" href="images/CLEMENTINELOGO-nowords.png" />
+  <link rel="apple-touch-icon" href="images/CLEMENTINELOGO-nowords.png" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clementine Speech Therapy | St. Petersburg, FL" />
+  <meta property="og:description" content="Warm, evidence-based speech-language therapy for all ages. Free screenings available — in-person and teletherapy across Florida." />
+  <meta property="og:image" content="images/CLEMENTINELOGO.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Clementine Speech Therapy | St. Petersburg, FL" />
+  <meta name="twitter:description" content="Warm, evidence-based speech-language therapy for all ages in St. Petersburg, FL." />
+  <meta name="twitter:image" content="images/CLEMENTINELOGO-nowords.png" />
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <!-- Schema: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Clementine Speech Therapy",
+    "description": "Warm, evidence-based speech-language therapy for children, teens, and adults in St. Petersburg, FL.",
+    "telephone": "+17576360746",
+    "email": "aemelia@clementinespeech.com",
+    "url": "https://www.clementinespeech.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "St. Petersburg",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "image": "https://www.clementinespeech.com/images/CLEMENTINELOGO.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Aemelia Jackson",
+      "jobTitle": "Speech-Language Pathologist, M.A., CCC-SLP"
+    }
+  }
+  </script>
 </head>
 <body>
   <div class="site-wrapper">
@@ -43,21 +82,20 @@
       <section class="hero-section">
         <div class="container hero-grid">
           <div class="hero-content">
-            <p class="hero-kicker"><span class="no-wrap">Speech-language services · St. Petersburg,FL</span>
-            </p>
+            <p class="hero-kicker"><span class="no-wrap">Speech-language services · St. Petersburg, FL</span></p>
             <h1 class="hero-title">Communication<br><em>blooms.</em><br>
               <span class="no-wrap">Confidence <em>grows.</em></span></h1>
             <p class="hero-body">
-              Warm, evidence‑based speech‑language therapy for individuals of all ages — supporting clear, confident communication at every stage of life.
-            </p>why
+              Warm, evidence‑based speech‑language therapy for children, teens, and adults — building the communication skills that open doors at every stage of life.
+            </p>
             <div class="hero-actions">
-              <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+              <a href="contact.html" class="btn btn-primary">Book a Free Screening</a>
               <a href="services.html" class="btn btn-ghost">Explore Services</a>
             </div>
             <div class="hero-badges">
               <span class="badge">All Ages</span>
               <span class="badge">Evidence‑Based</span>
-              <span class="badge">Client‑Centered</span>
+              <span class="badge">Person‑Centered</span>
             </div>
           </div>
 
@@ -172,7 +210,6 @@
       </section>
 
       <!-- TESTIMONIALS -->
-      <!--
       <section class="section section-testimonials">
         <div class="container">
           <div class="section-header-centered">
@@ -195,15 +232,14 @@
           </div>
         </div>
       </section>
-    -->
       <!-- CTA BANNER -->
       <section class="cta-band">
         <div class="container cta-band-inner">
           <div>
             <h2 class="cta-band-title">Ready to take the first step?</h2>
-            <p class="cta-band-sub">Book a free consultation and let's talk about your goals.</p>
+            <p class="cta-band-sub">Book a free screening and let's talk about your goals — no commitment required.</p>
           </div>
-          <a href="contact.html" class="btn btn-primary btn-lg">Book a Consultation</a>
+          <a href="contact.html" class="btn btn-primary btn-lg">Book a Free Screening</a>
         </div>
       </section>
 
@@ -226,6 +262,15 @@
     </footer>
 
   </div>
+  <!-- WELCOME POPUP -->
+  <div id="welcome-popup" class="welcome-popup" role="dialog" aria-modal="true" aria-label="Book a free screening">
+    <button id="popup-close" class="welcome-popup-close" aria-label="Close">&#x2715;</button>
+    <span class="welcome-popup-tag">Free screening available</span>
+    <h3 class="welcome-popup-title">Not sure where to start?</h3>
+    <p class="welcome-popup-text">A free 15‑minute screening is the perfect first step — ask questions, share your concerns, and see if we're the right fit. No commitment.</p>
+    <a id="popup-cta" href="contact.html" class="btn btn-primary welcome-popup-btn">Book a Free Screening</a>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
