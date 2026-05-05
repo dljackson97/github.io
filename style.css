@@ -77,13 +77,23 @@ img { display: block; max-width: 100%; }
    ============================================================ */
 
 .site-header {
-  background-color: rgba(253, 250, 246, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: none;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* Frosted-glass background on a pseudo-element keeps backdrop-filter off the real
+   element, avoiding an iOS Safari bug where backdrop-filter creates a containing
+   block for position:fixed children (breaking the full-screen nav overlay). */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(253, 250, 246, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: -1;
 }
 
 .navbar {
@@ -574,23 +584,31 @@ img { display: block; max-width: 100%; }
 }
 
 .why-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 5rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.why-text {
+  max-width: 700px;
+  text-align: center;
 }
 
 .why-points {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
-  margin-top: 1.8rem;
+  align-items: center;
 }
 
 .why-point {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  max-width: 500px;
+  text-align: left;
 }
 
 .why-dot {
