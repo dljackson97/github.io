@@ -123,7 +123,7 @@ img { display: block; max-width: 100%; }
 .brand-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 2.0rem;
   letter-spacing: 0.01em;
   color: var(--sage);
 }
@@ -1009,7 +1009,13 @@ img { display: block; max-width: 100%; }
   position: sticky;
   top: 6rem;
 }
-
+.bio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-xl);
+}
 .bio-text h2 {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -1120,10 +1126,16 @@ img { display: block; max-width: 100%; }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  gap: 4rem;
+  gap: 2.5rem;
   align-items: start;
 }
 
+.contact-grid > div:last-child {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 .contact-info-block {
   display: flex;
   flex-direction: column;
