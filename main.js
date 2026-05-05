@@ -23,9 +23,39 @@ navLinks?.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
+document.querySelector('.nav-close')?.addEventListener('click', closeMenu);
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && navLinks?.classList.contains('is-open')) closeMenu();
 });
+
+// Scroll-reveal — fade cards and sections up as they enter the viewport
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  const targets = document.querySelectorAll([
+    '.who-card', '.testimonial', '.card',
+    '.why-point', '.value-card', '.faq-item',
+    '.what-text', '.what-media', '.why-text',
+    '.bio-photo', '.bio-text',
+    '.section-header-centered', '.section-header',
+    '.contact-info-block', '.cta-band-inner',
+  ].join(','));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+  targets.forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+}());
 
 // Welcome popup — slides up after 3.5 s, dismissed for the session
 (function () {
