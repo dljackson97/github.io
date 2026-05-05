@@ -345,11 +345,16 @@ img { display: block; max-width: 100%; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
   align-items: center;
   position: relative;
   z-index: 1;
+}
+
+/* Restore two-column layout when the hero photo is present */
+.hero-grid:has(.hero-media) {
+  grid-template-columns: 1fr 1fr;
 }
 
 .hero-kicker {
@@ -812,6 +817,7 @@ img { display: block; max-width: 100%; }
 .footer-nav {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-nav a {
@@ -838,6 +844,7 @@ img { display: block; max-width: 100%; }
 .footer-legal {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer-legal a {
@@ -949,6 +956,9 @@ img { display: block; max-width: 100%; }
   .testimonials-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Clip decorative blobs inside photo bounds to prevent horizontal overflow */
+  .photo-placeholder { overflow: hidden; }
 }
 
 @media (max-width: 680px) {
@@ -1376,6 +1386,8 @@ img { display: block; max-width: 100%; }
 .contact-detail-value {
   font-size: 0.92rem;
   color: var(--text-main);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* ============================================================
