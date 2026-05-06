@@ -1055,10 +1055,10 @@ img { display: block; max-width: 100%; }
 
   /* ---- Layout ---- */
   .hero-title { font-size: 2rem; line-height: 1.12; }
-  /* Disable the fade-up animation on mobile — battery-saver and low-power
-     modes can suspend it mid-keyframe, leaving the element at opacity:0 */
-  .hero-content { animation: none; }
   .no-wrap { white-space: normal; }
+  /* Grid children default to min-width:auto which lets them overflow their column;
+     setting 0 forces hero-content to stay within the 1fr grid track */
+  .hero-content { min-width: 0; }
   .section { padding: 3.5rem 0; }
   .who-grid, .testimonials-grid { grid-template-columns: 1fr; }
   .hero-section { padding: 3rem 0 2.5rem; }
@@ -1658,8 +1658,10 @@ details[open] .faq-icon { transform: rotate(45deg); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero-content { animation: fade-up 0.65s ease 0.05s both; }
-.hero-media   { animation: fade-up 0.65s ease 0.2s  both; }
+@media (min-width: 681px) {
+  .hero-content { animation: fade-up 0.65s ease 0.05s both; }
+  .hero-media   { animation: fade-up 0.65s ease 0.2s  both; }
+}
 
 /* --- Scroll-reveal: JS adds .reveal, then .is-revealed on intersection --- */
 .reveal {
