@@ -57,6 +57,46 @@ document.addEventListener('keydown', e => {
   });
 }());
 
+// Auto-update copyright year
+document.querySelectorAll('.footer-copy').forEach(el => {
+  el.textContent = `© ${new Date().getFullYear()} Clementine Speech Therapy`;
+});
+
+// Contact form — Formspree AJAX submission with success state
+(function () {
+  const form = document.getElementById('consultation-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.hidden = true;
+        const success = document.getElementById('form-success');
+        if (success) success.hidden = false;
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send my request';
+        alert('Something went wrong. Please try emailing us directly at aemelia@clementinespeech.com');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send my request';
+      alert('Something went wrong. Please try emailing us directly at aemelia@clementinespeech.com');
+    }
+  });
+}());
+
 // Welcome popup — slides up after 3.5 s, dismissed for the session
 (function () {
   const popup = document.getElementById('welcome-popup');

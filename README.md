@@ -27,6 +27,24 @@ Marketing website for Clementine Speech Therapy, a speech-language pathology pra
 - Plain HTML, CSS, JavaScript — no framework or build step
 - Hosted on **GitHub Pages** with `.nojekyll` to disable Jekyll processing
 - Custom domain via **Namecheap** (`clementinespeech.com` and `clementinespeechtherapy.com` redirect)
+- Contact form powered by **Web3Forms** (250 free submissions/month, no backend needed)
+
+---
+
+## Contact Form Setup
+
+The consultation form on `/contact` uses [Web3Forms](https://web3forms.com) (250 free submissions/month, no branding):
+
+1. Go to [web3forms.com](https://web3forms.com)
+2. Enter `aemelia@clementinespeech.com` and click **Create Access Key**
+3. Copy the access key from your email
+4. Open `contact/index.html` and replace `YOUR_ACCESS_KEY` with your key:
+   ```html
+   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+   ```
+5. Push to GitHub — the form is live
+
+Submissions are emailed directly to `aemelia@clementinespeech.com` with the subject line "New Consultation Request — Clementine Speech Therapy". No account dashboard or login required.
 
 ---
 

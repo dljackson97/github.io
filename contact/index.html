@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Book a Consultation | Clementine Speech Therapy" />
   <meta property="og:description" content="Ready to get started? Book a consultation with our St. Petersburg, FL speech-language pathologist." />
-  <meta property="og:image" content="https://www.clementinespeech.com/images/CLEMENTINELOGO.png" />
+  <meta property="og:image" content="https://www.clementinespeech.com/images/aemeliaheadshot.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="https://www.clementinespeech.com/images/CLEMENTINELOGO-nowords.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,20 +109,67 @@
             <!-- Right: Booking -->
             <div>
               <div id="free-consultation" class="card card--accent">
-                <span class="card-tag"> Free consultation</span>
+                <span class="card-tag">Free consultation</span>
                 <h3 class="card-title">Schedule your first consultation</h3>
                 <p class="card-text">
-                  A free consultation is a no‑pressure conversation, a chance to introduce yourself, ask questions, and explore whether Clementine Speech Therapy is the right fit for you or your child.
+                  A free consultation is a no‑pressure conversation — a chance to introduce yourself, ask questions, and explore whether Clementine Speech Therapy is the right fit for you or your child.
                 </p>
-                <p class="card-text">
-                  We'll talk through your goals, current challenges, and what support could look like going forward.
-                </p>
-                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(232, 160, 106, 0.15);">
-                  <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--sage); margin: 0 0 1rem; font-weight: 500;">Get in touch</p>
-                  <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <a href="mailto:aemelia@clementinespeech.com" class="btn btn-primary" style="justify-content: center;">Email to schedule</a>
-                    <a href="tel:7576360746" class="btn btn-ghost" style="justify-content: center;">Call (757) 636‑0746</a>
+
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  class="contact-form"
+                  id="consultation-form"
+                >
+                  <input type="hidden" name="access_key" value="1ad6107b-2dcd-417f-833d-6adcfedaf245" />
+                  <input type="hidden" name="subject" value="New Consultation Request — Clementine Speech Therapy" />
+                  <input type="checkbox" name="botcheck" style="display:none;" />
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="name" class="form-label">Your name</label>
+                      <input type="text" id="name" name="name" class="form-input" placeholder="Jane Smith" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="form-label">Email address</label>
+                      <input type="email" id="email" name="email" class="form-input" placeholder="jane@email.com" required />
+                    </div>
                   </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="phone" class="form-label">Phone number <span class="form-optional">(optional)</span></label>
+                      <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 000-0000" />
+                    </div>
+                    <div class="form-group">
+                      <label for="for-whom" class="form-label">This is for</label>
+                      <select id="for-whom" name="for_whom" class="form-input form-select" required>
+                        <option value="" disabled selected>Select one</option>
+                        <option value="My child">My child</option>
+                        <option value="Myself">Myself</option>
+                        <option value="Someone else">Someone else</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message" class="form-label">What brings you here? <span class="form-optional">(optional)</span></label>
+                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Share a little about your goals or concerns. No medical details needed at this stage." rows="4"></textarea>
+                  </div>
+
+                  <p class="form-notice">Please do not include sensitive medical or health information in this form. We can discuss details confidentially once we connect.</p>
+
+                  <button type="submit" class="btn btn-primary form-submit">Send my request</button>
+
+                  <div id="form-success" class="form-success" aria-live="polite" hidden>
+                    <p>Thanks! We'll be in touch within 1–2 business days.</p>
+                  </div>
+                </form>
+
+                <div class="form-alt-contact">
+                  <span>Prefer to reach out directly?</span>
+                  <a href="mailto:aemelia@clementinespeech.com">Email us</a>
+                  <span>or</span>
+                  <a href="tel:7576360746">Call (757) 636‑0746</a>
                 </div>
               </div>
 
@@ -130,7 +177,7 @@
                 <span class="card-tag">What to expect</span>
                 <h3 class="card-title">Your first steps</h3>
                 <ul class="card-list">
-                  <li>Reach out by email or phone and we'll confirm a consultation time</li>
+                  <li>Submit the form and we'll confirm a consultation time within 1–2 business days</li>
                   <li>Share a bit about your goals and current needs</li>
                   <li>We'll walk through services and answer your questions</li>
                   <li>Together, we'll find the right path forward</li>
