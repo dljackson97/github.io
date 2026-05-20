@@ -6,33 +6,23 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.clementinespeech.com/about.html</loc>
+    <loc>https://www.clementinespeech.com/about/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.clementinespeech.com/services.html</loc>
+    <loc>https://www.clementinespeech.com/services/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.clementinespeech.com/faqs.html</loc>
+    <loc>https://www.clementinespeech.com/faqs/</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.clementinespeech.com/contact.html</loc>
+    <loc>https://www.clementinespeech.com/contact/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.clementinespeech.com/privacy-policy.html</loc>
-    <priority>0.3</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.clementinespeech.com/terms-and-conditions.html</loc>
-    <priority>0.3</priority>
-    <changefreq>yearly</changefreq>
   </url>
 </urlset>
