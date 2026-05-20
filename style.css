@@ -422,10 +422,10 @@ img { display: block; max-width: 100%; }
 
 .photo-placeholder {
   position: relative;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(145deg, var(--clementine-warm), #f5e8d8);
-  border: 1.5px dashed rgba(232, 160, 106, 0.45);
-  overflow: visible;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  overflow: hidden;
   aspect-ratio: 4/5;
   display: flex;
   align-items: center;
@@ -459,28 +459,8 @@ img { display: block; max-width: 100%; }
   font-weight: 400;
 }
 
-/* Decorative blobs */
-.photo-decoration {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.photo-dec-1 {
-  width: 80px; height: 80px;
-  background: var(--clementine);
-  opacity: 0.35;
-  bottom: -24px; left: -24px;
-  z-index: -1;
-}
-
-.photo-dec-2 {
-  width: 50px; height: 50px;
-  background: var(--sage-light);
-  opacity: 0.3;
-  top: -18px; right: -18px;
-  z-index: -1;
-}
+/* Decorative blobs — hidden globally */
+.photo-decoration { display: none; }
 
 .photo-dec-3 {
   width: 100px; height: 100px;
@@ -1313,6 +1293,14 @@ img { display: block; max-width: 100%; }
   display: block;
   border-radius: 50%;
 }
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
 .bio-text h2 {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -1788,4 +1776,128 @@ a:focus-visible {
 .faq-question:focus-visible {
   outline: 3px solid var(--clementine-deep);
   outline-offset: -3px;
+}
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 540px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+.form-optional {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.form-input {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background: var(--white);
+  border: 1.5px solid #ddd6cf;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  width: 100%;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(82, 120, 72, 0.12);
+}
+
+.form-input::placeholder {
+  color: #bbb4ac;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23787063' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.2rem;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.55;
+}
+
+.form-notice {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.form-submit {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
+
+.form-success {
+  background: var(--sage-pale);
+  border: 1px solid var(--sage-light);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  color: var(--sage);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.form-success p { margin: 0; }
+
+.form-alt-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.form-alt-contact a {
+  color: var(--sage);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form-alt-contact a:hover {
+  text-decoration: underline;
 }
