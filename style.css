@@ -814,6 +814,30 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
+.footer-social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,248,242,0.2);
+  color: rgba(255,248,242,0.65);
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.social-link:hover {
+  border-color: var(--clementine);
+  color: var(--clementine);
+  background-color: rgba(248,201,160,0.08);
+}
+
 .footer-nav {
   display: flex;
   gap: 1.5rem;
@@ -1287,7 +1311,7 @@ img { display: block; max-width: 100%; }
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: var(--radius-xl);
+  border-radius: 50%;
 }
 .bio-text h2 {
   font-family: var(--font-display);
