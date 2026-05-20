@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page Not Found | Clementine Speech Therapy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/images/CLEMENTINELOGO-nowords.png" sizes="192x192" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/CLEMENTINELOGO-nowords.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .error-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1.5rem;
+    }
+
+    .error-inner {
+      max-width: 540px;
+      text-align: center;
+    }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 18vw, 10rem);
+      font-weight: 500;
+      line-height: 1;
+      color: var(--clementine-deep);
+      margin: 0 0 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .error-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--clementine-deep);
+      margin: 1.25rem auto 1.75rem;
+      border: none;
+    }
+
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 500;
+      color: var(--text-main);
+      margin: 0 0 1rem;
+      line-height: 1.25;
+    }
+
+    .error-body {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0 0 2.5rem;
+    }
+
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .error-links {
+      border-top: 1px solid rgba(197, 149, 106, 0.2);
+      padding-top: 2rem;
+    }
+
+    .error-links-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin: 0 0 1rem;
+      font-weight: 500;
+    }
+
+    .error-links-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .error-links-nav a {
+      color: var(--sage);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.15s;
+    }
+
+    .error-links-nav a:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+
+    <!-- NAV -->
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand">
+          <div class="brand-icon">
+            <img src="/images/CLEMENTINELOGO-nowords.png" alt="Clementine Speech Therapy" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Clementine</span>
+            <span class="brand-sub">Speech Therapy</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <button class="nav-close" aria-label="Close menu">&#x2715;</button>
+          <a href="/">Home</a>
+          <a href="/about">About Us</a>
+          <a href="/services">Services</a>
+          <a href="/faqs">FAQs</a>
+          <a href="/contact" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="error-main">
+      <div class="error-inner">
+
+        <p class="error-code">404</p>
+        <hr class="error-divider" />
+        <h1 class="error-title">This page doesn't exist — <em>but we do.</em></h1>
+        <p class="error-body">
+          The page you're looking for may have moved or been removed.
+          Let's get you back to the right place.
+        </p>
+
+        <div class="error-actions">
+          <a href="/" class="btn btn-primary">Go to Home</a>
+          <a href="/contact" class="btn btn-ghost">Contact Us</a>
+        </div>
+
+        <div class="error-links">
+          <p class="error-links-label">Or go directly to</p>
+          <ul class="error-links-nav">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/faqs">FAQs</a></li>
+            <li><a href="/contact#free-consultation">Book a Consultation</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="brand-name">Clementine Speech Therapy</span>
+          <span class="footer-location">St. Petersburg, FL</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="/about">About Us</a>
+          <a href="/services">Services</a>
+          <a href="/faqs">FAQs</a>
+          <a href="/contact">Contact Us</a>
+        </nav>
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2025 Clementine Speech Therapy</span>
+          <nav class="footer-legal" aria-label="Legal">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="/main.js"></script>
+</body>
+</html>
