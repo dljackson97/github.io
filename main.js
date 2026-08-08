@@ -80,8 +80,10 @@ document.querySelectorAll('.footer-copy').forEach(el => {
         headers: { Accept: 'application/json' },
       });
 
-      if (res.ok) {
-        form.hidden = true;
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        form.style.display = 'none';
         const success = document.getElementById('form-success');
         if (success) success.hidden = false;
       } else {
