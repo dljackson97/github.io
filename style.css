@@ -352,9 +352,13 @@ img { display: block; max-width: 100%; }
   z-index: 1;
 }
 
-/* Restore two-column layout when the hero photo is present */
-.hero-grid:has(.hero-media) {
-  grid-template-columns: 1fr 1fr;
+/* Restore two-column layout when the hero photo is present (desktop/tablet only —
+   scoped to a min-width query so it can't out-specificity the mobile single-column
+   rule below; :has() adds a specificity point that would otherwise always win). */
+@media (min-width: 961px) {
+  .hero-grid:has(.hero-media) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .hero-kicker {
@@ -369,7 +373,11 @@ img { display: block; max-width: 100%; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: 4.2rem;
+  /* Fluid between the ~961px two-column breakpoint and a comfortable desktop
+     width, so the title doesn't stay pinned at full size while its column
+     narrows (which risked "Communication" crowding/overflowing its column
+     around 961–1100px) — mobile/tablet keep their own fixed sizes below. */
+  font-size: clamp(2.8rem, 4.7vw, 4.2rem);
   font-weight: 500;
   line-height: 1.02;
   margin: 0 0 1.4rem;
@@ -522,6 +530,13 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr 1.15fr;
   gap: 5rem;
   align-items: center;
+}
+
+/* Text-only variant (no photo) — single centered column */
+.what-grid--text-only {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 /* ============================================================
@@ -950,10 +965,27 @@ img { display: block; max-width: 100%; }
   }
 
   .hero-section { padding: 3.5rem 0 3rem; }
-  .hero-content {margin-top: -10px;}
   .hero-title { font-size: 2.8rem; }
 
-  .hero-media { order: -1; max-width: 420px; margin: 0 auto; }
+  /* Reflow hero into: kicker → title → photo → body → actions → badges.
+     display:contents unwraps .hero-content so its children become direct
+     grid items alongside .hero-media, letting the photo sit between the
+     headline and the supporting copy instead of moving as one fixed block. */
+  .hero-grid { gap: 0; }
+  .hero-content { display: contents; }
+  .hero-kicker,
+  .hero-title,
+  .hero-media,
+  .hero-body,
+  .hero-actions,
+  .hero-badges { min-width: 0; }
+  .hero-kicker  { order: 0; }
+  .hero-title   { order: 1; }
+  .hero-media   { order: 2; max-width: 420px; margin: 0 auto 2rem; }
+  .hero-body    { order: 3; }
+  .hero-actions { order: 4; }
+  .hero-badges  { order: 5; }
+
   .why-media  { order: -1; max-width: 380px; margin: 0 auto; }
 
   .who-grid,
@@ -973,37 +1005,37 @@ img { display: block; max-width: 100%; }
   /* ---- Mobile header: centered brand stack ---- */
   .navbar {
     position: relative;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 1rem 1rem 0.9rem;
+    padding: 0.65rem 1rem;
     gap: 0;
   }
 
   .brand {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    gap: 0;
+    text-align: left;
+    gap: 0.6rem;
     margin-right: 0;
   }
 
   .brand-icon {
-    width: 78px;
-    height: 78px;
-    margin-bottom: 10px;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
   }
 
   .brand-text {
-    align-items: center;
-    gap: 3px;
+    align-items: flex-start;
+    gap: 2px;
   }
 
-  .brand-name { font-size: 1.5rem; }
+  .brand-name { font-size: 1.2rem; }
 
   .brand-sub {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
   }
 
   .hamburger {
@@ -1060,9 +1092,6 @@ img { display: block; max-width: 100%; }
   /* ---- Layout ---- */
   .hero-title { font-size: 2rem; line-height: 1.12; }
   .no-wrap { white-space: normal; }
-  /* Grid children default to min-width:auto which lets them overflow their column;
-     setting 0 forces hero-content to stay within the 1fr grid track */
-  .hero-content { min-width: 0; }
   .section { padding: 3.5rem 0; }
   .who-grid, .testimonials-grid { grid-template-columns: 1fr; }
   .hero-section { padding: 3rem 0 2.5rem; }
@@ -1642,8 +1671,8 @@ details[open] .faq-icon { transform: rotate(45deg); }
    ============================================================ */
 
 @media (max-width: 680px) {
-  /* Hero media: constrain so content stays above the fold */
-  .hero-media { max-width: 260px; }
+  /* Hero media: large, centered photo up top, well clear of the headline below */
+  .hero-media { max-width: min(340px, 78vw); margin: 0 auto 2rem; }
 
   /* Hero & CTA band buttons: auto-width, left-aligned stack */
   .hero-actions { align-items: flex-start; }
@@ -1670,9 +1699,20 @@ details[open] .faq-icon { transform: rotate(45deg); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (min-width: 681px) {
+@media (min-width: 961px) {
   .hero-content { animation: fade-up 0.65s ease 0.05s both; }
   .hero-media   { animation: fade-up 0.65s ease 0.2s  both; }
+}
+
+/* 681–960px: .hero-content is display:contents (its children are interleaved
+   with .hero-media via order), so animate the actual pieces individually. */
+@media (min-width: 681px) and (max-width: 960px) {
+  .hero-kicker  { animation: fade-up 0.65s ease 0.05s both; }
+  .hero-title   { animation: fade-up 0.65s ease 0.1s  both; }
+  .hero-media   { animation: fade-up 0.65s ease 0.2s  both; }
+  .hero-body    { animation: fade-up 0.65s ease 0.3s  both; }
+  .hero-actions { animation: fade-up 0.65s ease 0.35s both; }
+  .hero-badges  { animation: fade-up 0.65s ease 0.4s  both; }
 }
 
 /* --- Scroll-reveal: JS adds .reveal, then .is-revealed on intersection --- */
@@ -1746,7 +1786,8 @@ details[open] .faq-answer {
 /* --- Respect reduced-motion preference --- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-content, .hero-media { animation: none; }
+  .hero-content, .hero-media,
+  .hero-kicker, .hero-title, .hero-body, .hero-actions, .hero-badges { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   details[open] .faq-answer { animation: none; }
 }
