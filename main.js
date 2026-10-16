@@ -120,3 +120,17 @@ document.querySelectorAll('.footer-copy').forEach(el => {
     if (e.key === 'Escape' && popup.classList.contains('is-visible')) hidePopup();
   });
 }());
+
+// FAQ deep links — open the matching <details> when arriving via #id, e.g. /faqs#teletherapy
+(function () {
+  const openTargetFaq = () => {
+    if (!location.hash) return;
+    const target = document.querySelector(location.hash);
+    if (!target || !target.matches('.faq-item')) return;
+    target.open = true;
+    target.scrollIntoView({ block: 'start' });
+  };
+
+  openTargetFaq();
+  window.addEventListener('hashchange', openTargetFaq);
+}());
