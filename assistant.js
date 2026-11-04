@@ -27,11 +27,11 @@
   // Pre-chat notice (SPEC §3), shown as two paragraphs so the AI disclaimer
   // stands on its own
   const NOTICE =
-    "Hi! I can answer general questions about Clementine Speech Therapy. Please don't share names, health details, or other personal information here. For anything specific about you or your child, call (757) 636-0746 or book a free consultation.";
+    "Hi! I can answer general questions about Clementine Speech Therapy. Please don't share names, health details, or other personal information here. For anything specific about you or your child, please reach out to Aemelia for a free consultation. You can call (757) 636-0746 or use our Contact Us page.";
   const NOTICE_DISCLAIMER =
     "This assistant uses AI and can make mistakes. It doesn't give clinical advice.";
   const PERSONAL_INFO_WARNING =
-    "It looks like your message includes a phone number, email address or date. To protect your privacy, please remove it before sending. For anything about you or your child, call (757) 636-0746.";
+    "It looks like your message includes a phone number, email address or date. To protect your privacy, please remove it before sending. For anything specific about you or your child, please reach out to Aemelia for a free consultation at (757) 636-0746.";
   // Same text as the Worker's outage message, for when the Worker can't be reached
   const OUTAGE = "I'm having trouble right now. Please call (757) 636-0746.";
   const ENDED_PLACEHOLDER = "This chat has ended. Call or book a free consultation for more.";
@@ -139,7 +139,6 @@
     panel.hidden = false;
     launcher.setAttribute("aria-expanded", "true");
     launcher.classList.add("is-hidden");
-    document.body.classList.add("assistant-is-open"); // stops the page scrolling behind it on phones
     hideWelcomePopup();
     (accepted ? input : $(".assistant-accept")).focus();
   }
@@ -148,7 +147,6 @@
     panel.hidden = true;
     launcher.setAttribute("aria-expanded", "false");
     launcher.classList.remove("is-hidden");
-    document.body.classList.remove("assistant-is-open");
     launcher.focus();
   }
 

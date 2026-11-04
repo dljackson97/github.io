@@ -347,9 +347,9 @@
   border: 0;
 }
 
-/* --- Phones: the chat opens full screen ---
-   With the keyboard up, a partial panel leaves too little room to read.
-   env(safe-area-inset-bottom) keeps clear of the iPhone home bar. */
+/* --- Phones: a floating card, not full screen ---
+   Keeps the page visible behind it. env(safe-area-inset-bottom) keeps clear
+   of the iPhone home bar. */
 @media (max-width: 680px) {
   .assistant-launcher {
     right: 1rem;
@@ -359,13 +359,13 @@
   .has-assistant .welcome-popup { bottom: 4.75rem; }
 
   .assistant-panel {
-    inset: 0;
-    width: 100%;
+    right: 0.75rem;
+    left: 0.75rem;
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    width: auto;
     max-width: none;
-    height: 100vh;
-    height: 100dvh;
-    border: none;
-    border-radius: 0;
+    height: min(520px, 68vh);
+    height: min(520px, 68dvh);
   }
 
   .assistant-close {
@@ -380,9 +380,6 @@
 
   /* No drag handle on touch screens */
   .assistant-input { resize: none; }
-
-  /* Stop the page behind the chat from scrolling */
-  .assistant-is-open { overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
