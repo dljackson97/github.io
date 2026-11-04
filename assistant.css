@@ -48,12 +48,17 @@
    button so both stay visible (style.css puts it at 2rem / 1rem on phones) */
 .has-assistant .welcome-popup { bottom: 5.5rem; }
 
-/* --- Panel --- */
+/* Once the chat has been opened, the site's welcome popup stays hidden */
+.assistant-used .welcome-popup,
+.assistant-used .welcome-popup.is-visible { display: none; }
+
+/* --- Panel ---
+   Above the welcome popup (400), below the mobile menu (500). */
 .assistant-panel {
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
-  z-index: 390;
+  z-index: 410;
   display: flex;
   flex-direction: column;
   width: 340px;
@@ -80,6 +85,8 @@
   background-color: var(--clementine-soft);
   border-bottom: 1px solid rgba(232, 160, 106, 0.22);
 }
+
+.assistant-title:focus { outline: none; }
 
 .assistant-title {
   margin: 0;
@@ -358,14 +365,21 @@
 
   .has-assistant .welcome-popup { bottom: 4.75rem; }
 
+  /* The card sits at the bottom of the visible screen. When the keyboard
+     opens, assistant.js updates --assistant-vv-top/-height (the area above
+     the keyboard) and the card shrinks to fit there, header included. */
   .assistant-panel {
+    --assistant-card-h: min(520px, 68dvh, calc(var(--assistant-vv-height, 100dvh) - 1.5rem));
     right: 0.75rem;
     left: 0.75rem;
-    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    top: calc(
+      var(--assistant-vv-top, 0px) + var(--assistant-vv-height, 100dvh)
+      - var(--assistant-card-h) - max(0.75rem, env(safe-area-inset-bottom))
+    );
+    bottom: auto;
     width: auto;
     max-width: none;
-    height: min(520px, 68vh);
-    height: min(520px, 68dvh);
+    height: var(--assistant-card-h);
   }
 
   .assistant-close {

@@ -23,6 +23,8 @@
   // only how it's shown). Skipped for visitors who prefer reduced motion.
   const REVEAL_MS_PER_WORD = 35;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Phones and tablets: don't pop the keyboard up until the visitor taps the box
+  const touchScreen = window.matchMedia("(pointer: coarse)").matches;
 
   // Pre-chat notice (SPEC §3), shown as two paragraphs so the AI disclaimer
   // stands on its own
@@ -88,7 +90,7 @@
   panel.innerHTML = `
     <header class="assistant-header">
       <div>
-        <h2 id="assistant-title" class="assistant-title">Ask Clementine</h2>
+        <h2 id="assistant-title" class="assistant-title" tabindex="-1">Ask Clementine</h2>
         <p class="assistant-subtitle">AI assistant · general questions</p>
       </div>
       <div class="assistant-header-end">
@@ -139,9 +141,29 @@
     panel.hidden = false;
     launcher.setAttribute("aria-expanded", "true");
     launcher.classList.add("is-hidden");
+    // Once the chat has been opened, the welcome popup stays away for the
+    // rest of the visit (its timer could otherwise put it on top)
+    document.body.classList.add("assistant-used");
     hideWelcomePopup();
-    (accepted ? input : $(".assistant-accept")).focus();
+    fitToScreen();
+    if (touchScreen) {
+      $(".assistant-title").focus(); // no keyboard, whole card visible
+    } else {
+      (accepted ? input : $(".assistant-accept")).focus();
+    }
   }
+
+  // Phones: keep the whole card inside the part of the screen the keyboard
+  // doesn't cover. The keyboard's size is only known while the page runs,
+  // so it's passed to assistant.css as two variables.
+  const viewport = window.visualViewport;
+  function fitToScreen() {
+    if (!viewport || panel.hidden) return;
+    panel.style.setProperty("--assistant-vv-top", `${viewport.offsetTop}px`);
+    panel.style.setProperty("--assistant-vv-height", `${viewport.height}px`);
+  }
+  viewport?.addEventListener("resize", fitToScreen);
+  viewport?.addEventListener("scroll", fitToScreen);
 
   function close() {
     panel.hidden = true;
@@ -170,7 +192,7 @@
     accepted = true;
     notice.hidden = true;
     chat.hidden = false;
-    input.focus();
+    if (!touchScreen) input.focus();
   });
 
   // ------------------------------------------------------------- the input
