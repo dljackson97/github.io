@@ -4,14 +4,38 @@
 //   <link rel="stylesheet" href="/assistant.css" />
 //   <script src="/assistant.js" defer></script>
 //
-// Privacy: the conversation lives only in this page's memory. Nothing is saved
-// in the browser, and it's gone when the visitor closes or leaves the page.
+// Privacy: the conversation lives only in this page's memory, and it's gone
+// when the visitor closes or leaves the page. The one thing ever saved in a
+// browser is the "internal" switch below, and only on browsers that visit
+// the site with ?internal=1 (Devin's own devices). It holds no visitor data.
 
 (function () {
   // On a local preview, talk to the Worker running on this computer
-  const ENDPOINT = ["localhost", "127.0.0.1"].includes(location.hostname)
-    ? "http://localhost:8787/chat"
-    : "https://clementine-assistant.clementinespeech.workers.dev/chat";
+  const WORKER = ["localhost", "127.0.0.1"].includes(location.hostname)
+    ? "http://localhost:8787"
+    : "https://clementine-assistant.clementinespeech.workers.dev";
+  const ENDPOINT = `${WORKER}/chat`;
+  const EVENT_ENDPOINT = `${WORKER}/event`;
+
+  // Internal switch: ?internal=1 turns counting off in this browser,
+  // ?internal=0 turns it back on. The address bar is then cleaned up so the
+  // link isn't bookmarked or shared by accident.
+  const INTERNAL_KEY = "clementine-internal";
+  const params = new URLSearchParams(location.search);
+  if (params.has("internal")) {
+    try {
+      if (params.get("internal") === "1") localStorage.setItem(INTERNAL_KEY, "1");
+      else localStorage.removeItem(INTERNAL_KEY);
+    } catch {}
+    params.delete("internal");
+    const rest = params.toString();
+    // window.history: the conversation below is also called "history"
+    window.history.replaceState(null, "", location.pathname + (rest ? `?${rest}` : "") + location.hash);
+  }
+  let internal = false;
+  try {
+    internal = localStorage.getItem(INTERNAL_KEY) === "1";
+  } catch {}
 
   const PHONE_DISPLAY = "(757) 636-0746";
   const PHONE_LINK = "tel:+17576360746";
@@ -62,7 +86,8 @@
 
   // Conversation state, in memory only
   const history = []; // { role: "user" | "assistant", content }
-  const counted = new Set(); // topics and flags this conversation has counted
+  const counted = new Set(); // topics, flags and offers this conversation has counted
+  const clicksCounted = new Set(); // hand-off taps this conversation has counted
   let accepted = false;
   let busy = false;
   let ended = false;
@@ -134,6 +159,8 @@
   const warning = $(".assistant-warning");
   $(".assistant-notice-text").textContent = NOTICE;
   $(".assistant-notice-disclaimer").textContent = NOTICE_DISCLAIMER;
+  // Shows Devin at a glance that this browser isn't counted
+  if (internal) $(".assistant-subtitle").textContent = "AI assistant · internal, not counted";
 
   // ---------------------------------------------------------- open / close
 
@@ -164,6 +191,14 @@
   }
   viewport?.addEventListener("resize", fitToScreen);
   viewport?.addEventListener("scroll", fitToScreen);
+  // Re-measure when the keyboard opens or closes, and again once the
+  // iPhone's keyboard animation has finished
+  for (const event of ["focus", "blur"]) {
+    input.addEventListener(event, () => {
+      fitToScreen();
+      setTimeout(fitToScreen, 350);
+    });
+  }
 
   function close() {
     panel.hidden = true;
@@ -173,10 +208,11 @@
   }
 
   // The site's welcome popup shares the bottom-right corner; don't show both
+  // Removed from the page outright, so its timer can't bring it back
   function hideWelcomePopup() {
     const popup = document.getElementById("welcome-popup");
     if (!popup) return;
-    popup.classList.remove("is-visible");
+    popup.remove();
     try {
       sessionStorage.setItem("popup-dismissed", "1");
     } catch {}
@@ -245,7 +281,7 @@
   // Shows the assistant's reply word by word, then its hand-off buttons.
   // Scrolling follows the reply until its first line reaches the top of the
   // chat, then stays put so the visitor reads from the beginning.
-  async function addBotMessage(text, handoff) {
+  async function addBotMessage(text, handoff, offer) {
     const { message, body } = messageShell("bot");
     log.setAttribute("aria-busy", "true"); // screen readers wait for the full reply
     log.append(message);
@@ -261,7 +297,7 @@
       }
     }
     if (handoff === "consult" || handoff === "phone") {
-      message.append(handoffButtons(handoff));
+      message.append(handoffButtons(handoff, offer));
     }
     keepTopInView();
     log.setAttribute("aria-busy", "false");
@@ -304,8 +340,11 @@
     return pieces;
   }
 
-  // "consult" shows booking first; "phone" shows calling first
-  function handoffButtons(handoff) {
+  // "consult" shows booking first; "phone" shows calling first.
+  // offer: the topic the Worker counted this hand-off under, or null when it
+  // isn't counted (outages, or before the conversation has an AI reply);
+  // taps are only recorded for counted hand-offs.
+  function handoffButtons(handoff, offer) {
     const row = document.createElement("div");
     row.className = "assistant-handoff";
     const consult = document.createElement("a");
@@ -320,7 +359,27 @@
     primary.classList.add("btn-primary");
     secondary.classList.add("btn-ghost");
     row.append(primary, secondary);
+    if (typeof offer === "string") {
+      consult.addEventListener("click", () => recordClick("consult", offer));
+      call.addEventListener("click", () => recordClick("call", offer));
+    }
     return row;
+  }
+
+  // Counts a tap once per conversation, without delaying the call or the
+  // page change: sendBeacon hands the request to the browser, which sends it
+  // even if the page is closing. Plain text, so no extra preflight request.
+  // Never cancels the link, and any failure is ignored.
+  function recordClick(button, offer) {
+    const names = ["clicked", `click-${button}`, `click:${offer}`].filter(
+      (n) => !clicksCounted.has(n)
+    );
+    if (names.length === 0) return;
+    names.forEach((n) => clicksCounted.add(n));
+    if (internal) return;
+    try {
+      navigator.sendBeacon(EVENT_ENDPOINT, JSON.stringify({ names }));
+    } catch {}
   }
 
   function addTyping() {
@@ -365,8 +424,15 @@
       counted.add(answer.topic);
       if (answer.flag && answer.flag !== "none") counted.add(answer.flag);
     }
+    // The Worker counted this hand-off once for the conversation (the same
+    // names it uses: offered, offer-consult or offer-call, offer:<topic>)
+    if (typeof answer.offer === "string") {
+      counted.add("offered");
+      counted.add(answer.handoff === "phone" ? "offer-call" : "offer-consult");
+      counted.add(`offer:${answer.offer}`);
+    }
 
-    await addBotMessage(answer.reply, answer.handoff);
+    await addBotMessage(answer.reply, answer.handoff, answer.offer);
     busy = false;
     updateInput();
     if (!ended) input.focus();
@@ -381,14 +447,18 @@
       const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history, countedTopics: [...counted] }),
+        body: JSON.stringify({
+          messages: history,
+          countedTopics: [...counted],
+          ...(internal && { internal: true }),
+        }),
         signal: controller.signal,
       });
       const answer = await res.json();
       if (typeof answer.reply !== "string" || answer.reply.trim() === "") throw new Error();
       return answer;
     } catch {
-      return { reply: OUTAGE, topic: null, handoff: "phone", flag: null };
+      return { reply: OUTAGE, topic: null, handoff: "phone", flag: null, offer: null };
     } finally {
       clearTimeout(timer);
     }
